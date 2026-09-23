@@ -1,0 +1,73 @@
+[
+  {
+    "station": "Z\u00fcrich HB",
+    "train_count": 16,
+    "avg_delay_minutes": 0.2,
+    "lines": [
+      "EC",
+      "IC",
+      "IR",
+      "S",
+      "TGV"
+    ]
+  },
+  {
+    "station": "Gen\u00e8ve",
+    "train_count": 15,
+    "avg_delay_minutes": 0.5,
+    "lines": [
+      "IC",
+      "IR",
+      "R",
+      "RE",
+      "TER"
+    ]
+  },
+  {
+    "station": "Bern",
+    "train_count": 15,
+    "avg_delay_minutes": 0.2,
+    "lines": [
+      "EC",
+      "IC",
+      "IR",
+      "RE",
+      "S"
+    ]
+  },
+  {
+    "station": "Basel SBB",
+    "train_count": 15,
+    "avg_delay_minutes": 0.0,
+    "lines": [
+      "IC",
+      "ICE",
+      "IR",
+      "RE",
+      "S",
+      "TER"
+    ]
+  },
+  {
+    "station": "Lausanne",
+    "train_count": 15,
+    "avg_delay_minutes": 0.8,
+    "lines": [
+      "IC",
+      "IR",
+      "R",
+      "RE",
+      "S"
+    ]
+  },
+  {
+    "station": "Luzern",
+    "train_count": 15,
+    "avg_delay_minutes": 0.1,
+    "lines": [
+      "IR",
+      "RE",
+      "S"
+    ]
+  }
+]

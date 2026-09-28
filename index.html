@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Swiss Rail Pulse</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Swiss Rail Pulse</h1>
+  <p id="status">Loading data..</p>
   <div id ="filters"> </div>
   <canvas id="art" width = "800" height = "450"></canvas>
- 
+  <div id="legend">
+    <span>On time</span>
+    <div id="legend-bar"></div>
+    <span>5+ min late</span>
+</div>
   <table id="data-table">
     <thead>
       <tr>

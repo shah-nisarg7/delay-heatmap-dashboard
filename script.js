@@ -1,21 +1,22 @@
-async function loadData() {
-  try {
-    const response = await fetch("data.json");
-    if (!response.ok) {
-      throw new Error("HTTP " + response.status);
+async function loadData(){
+    const status = document.getElementById("status");
+    try {
+        const response = await fetch("data.json");
+        if (!response.ok){
+            throw new Error("HTTP"+ response.status);
+
+        }
+        const stations = await response.json();
+        status.style.display = "none";
+        setupFilters(stations);
+        applyFilters();
+
+    } catch(err){
+        console.error("failed to load data.json",err);
+        status.textContent = "Could not load data. Try refreshing";
+
     }
-    const stations = await response.json();
-    setupFilters(stations);
-    applyFilters();
-
-  } catch (err) {
-    console.error("Failed to load data.json:", err);
-    const body = document.getElementById("data-body");
-    body.innerHTML = "<tr><td colspan='4'>Could not load data.</td></tr>";
-  }
-
 }
-
 function addCell(row, text) {
   const cell = document.createElement("td");
   cell.textContent = text;
@@ -25,6 +26,10 @@ function addCell(row, text) {
 function renderTable(stations) {
   const body = document.getElementById("data-body");
   body.innerHTML = "";
+  if (stations.length ===0){
+    body.innerHTML = "<tr><td colspan='4'> No stations selected. </td></tr>";
+    return;
+  }
   for (const s of stations) {
     const row = document.createElement("tr");
     addCell(row, s.station);
@@ -102,13 +107,20 @@ function drawFrame(t) {
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    if(stationsData.length ===0){
+        ctx.fillStyle= "#888";
+        ctx.font = "18px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("No stations selected",canvas.width/2,canvas.height /2);
+        return;
+    }
     const columns = 3;
     const cellW = canvas.width / columns;
     const cellH = canvas.height/2;
 
     stationsData.forEach(function(s,i){
         const x= (i%columns)*cellW + cellW/2;
-        const y= Math.floor(i/columns)*cellH + cellH/2;
+        const y= Math.floor(i/columns)*cellH + cellH/2 -20; //doing -20 rn bcs the text cutoff from canvas
         const color = delayTocolor(s.avg_delay_minutes);
         const baseRadius = 15 + s.train_count*3;
 

@@ -10,4 +10,42 @@ body {
  
 h1 { color: #e63950;}  
 
-   
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+}
+
+th,td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom : 1px solid #333;
+
+}
+
+th {
+    color : #e63950;
+}
+
+canvas{
+    width : 100%;
+    background: #0a0a0a;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+#filters{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+
+}
+#filter label {
+    cursor: pointer;
+    user-select: none;
+
+}

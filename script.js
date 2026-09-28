@@ -5,8 +5,9 @@ async function loadData() {
       throw new Error("HTTP " + response.status);
     }
     const stations = await response.json();
-    renderTable(stations);
-    renderCircles(stations);
+    setupFilters(stations);
+    applyFilters();
+
   } catch (err) {
     console.error("Failed to load data.json:", err);
     const body = document.getElementById("data-body");
@@ -44,6 +45,39 @@ function delayTocolor(delay) {
 }
 
 let stationsData = [];
+function setupFilters(stations){
+    allStations = stations;
+    const box = document.getElementById("filters");
+    box.innerHTML= "";
+    stations.forEach(function(s){
+        const label = document.createElement("label");
+        const check = document.createElement("input");
+        check.type = "checkbox";
+        check.checked = true;
+        check.value = s.station;
+        check.addEventListener("change",applyFilters);
+        label.appendChild(check);
+        label.appendChild(document.createTextNode(" "+ s.station));
+        box.appendChild(label);
+
+
+    });
+
+}
+
+function applyFilters(){
+
+    const checked = document.querySelectorAll("#filters input:checked");
+    const names = Array.from(checked).map(function(c){
+        return c.value;
+
+    });
+    const visible = allStations.filter(function(s){
+        return names.includes(s.station);
+    });
+    renderTable(visible);
+    renderCircles(visible);
+}
 let animationStarted = false; 
 
 function renderCircles(stations) {

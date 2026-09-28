@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rail Delay Heatmap</title>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Swiss Rail Pulse</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> Rail Delay Heatmap</h1>
-    <p id ="status">Adding Data soon!!...</p>
-    <script src="script.js"></script>
+  <h1>Swiss Rail Pulse</h1>
+  <div id ="filters"> </div>
+  <canvas id="art" width = "800" height = "450"></canvas>
+ 
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Station</th>
+        <th>Trains</th>
+        <th>Avg Delay (min)</th>
+        <th>Lines</th>
+      </tr>
+    </thead>
+    <tbody id="data-body"></tbody>
+  </table>
+  <script src="script.js"></script>
 </body>
 </html>

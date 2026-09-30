@@ -122,8 +122,7 @@ function drawFrame(t) {
         const x= (i%columns)*cellW + cellW/2;
         const y= Math.floor(i/columns)*cellH + cellH/2 -20; //doing -20 rn bcs the text cutoff from canvas
         const color = delayTocolor(s.avg_delay_minutes);
-        const baseRadius = 15 + s.train_count*3;
-
+        const baseRadius = 15 + Math.min(s.train_count, 20) * 3;
         //making busier stations have faster pulse 
         const speed = 1+s.train_count/8;
         //making the circle look like its breathing

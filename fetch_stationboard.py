@@ -6,7 +6,7 @@ def fetch_stationboard(station_name, limit=10):
     #fetching upcoming departures for a station including delay time
 
     params = {"station": station_name, "limit": limit}
-    response = requests.get(BASE_URL, params=params)
+    response = requests.get(BASE_URL, params=params, timeout=10)
     response.raise_for_status() 
 
     return response.json()

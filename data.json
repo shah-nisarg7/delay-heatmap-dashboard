@@ -37,7 +37,7 @@
   },
   {
     "station": "Basel SBB",
-    "train_count": 15,
+    "train_count": 3,
     "avg_delay_minutes": 0.0,
     "lines": [
       "IC",
@@ -63,7 +63,7 @@
   {
     "station": "Luzern",
     "train_count": 15,
-    "avg_delay_minutes": 0.1,
+    "avg_delay_minutes": 4.2,
     "lines": [
       "IR",
       "RE",

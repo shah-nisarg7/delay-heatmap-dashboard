@@ -1,7 +1,7 @@
 async function loadData(){
     const status = document.getElementById("status");
     try {
-        const response = await fetch("data.json");
+        const response = await fetch("/api/data"); //changing static data in data.json to live updating data
         if (!response.ok){
             throw new Error("HTTP"+ response.status);
 

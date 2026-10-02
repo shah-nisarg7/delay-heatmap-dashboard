@@ -47,15 +47,23 @@ def build_station_summary(station_name):
     delays = []
     lines = set()
     soon_count = 0
+    upcoming = []
     for d in departures:
         stop = d.get("stop", {})
         if is_within_window(stop.get("departure"),now):
             soon_count = soon_count +1
-
         delay = compute_delay_minutes(stop)
         if delay is not None:
             delays.append(delay)
         lines.add(d.get("category","?"))
+
+        if len(upcoming)<6:
+            upcoming.append({
+                "line": d.get("category","?")+str(d.get("number","")),
+                "to": d.get("to","?"),
+                "time": (stop.get("departure")or "")[11:16], #this [11:16] is to slice Hrs and mins from the timestamp
+                "delay": delay,
+            })
 
     avg_delay = round(sum(delays) / len(delays), 1) if delays else 0
 
@@ -64,6 +72,7 @@ def build_station_summary(station_name):
         "train_count": soon_count,
          "avg_delay_minutes": avg_delay,
          "lines": sorted(lines),
+         "upcoming": upcoming,
     }
 
 def build_all():

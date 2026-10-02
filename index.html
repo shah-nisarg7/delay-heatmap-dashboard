@@ -10,6 +10,11 @@
   <h1>Swiss Rail Pulse</h1>
   <p id="status">Loading data..</p>
   <div id ="filters"> </div>
+  <div id ="refresh-bar"> 
+    <span id ="last-updated">
+        <button id ="refresh-btn">Refresh</button>
+    </span>
+  </div>
   <canvas id="art" width = "800" height = "450"></canvas>
   <div id="legend">
     <span>On time</span>
@@ -27,6 +32,11 @@
     </thead>
     <tbody id="data-body"></tbody>
   </table>
+  <div id="detail-panel" class="hidden">
+    <button id="close-detail">✕</button>
+    <h3 id="detail-title"></h3>
+    <ul id="detail-list"></ul>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

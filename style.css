@@ -42,12 +42,10 @@ canvas{
     flex-wrap: wrap;
     gap: 16px;
     margin-top: 16px;
-
 }
 #filter label {
     cursor: pointer;
     user-select: none;
-
 }
 
 #status{
@@ -83,4 +81,74 @@ canvas{
         padding:6px 4px;
         font-size: 13px;
     }
+}
+
+body {
+    background: radial-gradient(circle at 20% 20%, #141414, #0a0a0a 60%);
+}
+ 
+#refresh-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top : 14px;
+    color: #888;
+    font-size : 13px;
+}
+
+#refresh-btn{
+    background: #1a1a1a;
+    color:#eee;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size:13px;
+}
+
+#refresh-btn:hover{
+    background: #e63950;
+    border-color: #e63950;
+}
+
+#detail-panel{
+    margin-top:20px;
+    padding: 16px;
+    background:#161616;
+    border-radius: 10px;
+    border: 1px solid #2a2a2a;
+    position: relative;
+}
+
+#detail-panel.hidden {
+    display:none;
+}
+#close-detail{
+    position: absolute;
+    top:12px;
+    right : 12px;
+    background: none;
+    border:none;
+    color:#888;
+    cursor:pointer;
+    font-size: 16px;
+}
+#detail-list{
+    list-style: none;
+    padding:0;
+    margin-top: 10px;
+
+}
+#detail-list li{
+    display:flex;
+    justify-content: space-between;
+    padding:6px 0;
+    border-bottom : 1px solid #222;
+    font-size: 14px;
+}
+tr.clickable-row{
+    cursor: pointer;
+}
+tr.clickable-row:hover{
+    background:#181818;
 }
